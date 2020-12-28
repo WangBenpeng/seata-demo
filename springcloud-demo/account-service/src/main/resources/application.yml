@@ -1,0 +1,25 @@
+server.port: 18004
+
+spring.datasource.driver-class-name: com.mysql.cj.jdbc.Driver
+spring.datasource.url: jdbc:mysql://localhost:3306/seata?useSSL=false&serverTimezone=Asia/Shanghai
+spring.datasource.username: root
+spring.datasource.password: root
+
+mybatis-plus.configuration.log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+spring.cloud.nacos.discovery.server-addr: localhost:8848
+seata:
+  enabled: true
+  service:
+    vgroup-mapping:
+      account-service: default
+    grouplist:
+      default: 127.0.0.1:8091
+    disable-global-transaction: false
+spring:
+  cloud:
+    alibaba:
+      seata:
+        tx-service-group: account-service
+  application:
+    name: account-service

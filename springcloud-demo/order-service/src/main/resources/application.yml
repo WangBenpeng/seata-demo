@@ -1,0 +1,28 @@
+server:
+  port: 18003
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/seata?useSSL=false&serverTimeZone=Asia/Shanghai
+    username: root
+    password: root
+  application:
+    name: order-service
+  cloud:
+    alibaba:
+      seata:
+        tx-service-group: business-service
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+seata:
+  enabled: true
+  service:
+    vgroup-mapping:
+      business-service: default
+    grouplist:
+      default: 127.0.0.1:8091
+    disable-global-transaction: false

@@ -1,0 +1,35 @@
+server:
+  port: 18001
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+    alibaba:
+      seata:
+        tx-service-group: business-service
+#    loadbalancer:
+#      ribbon:
+#        enabled: true
+  application:
+    name: business-service
+#feign:
+#  client:
+#    config:
+#      default:
+#        connectTimeout: 10000
+#        readTimeout: 10000
+
+seata:
+  enabled: true
+  service:
+    vgroup-mapping:
+      business-service: default
+    grouplist:
+      default: 127.0.0.1:8091
+    disable-global-transaction: false
