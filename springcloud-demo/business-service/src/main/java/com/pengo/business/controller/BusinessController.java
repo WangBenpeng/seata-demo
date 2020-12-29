@@ -21,10 +21,10 @@ public class BusinessController
 
   @Autowired
   private RestTemplate restTemplate;
-//  @Autowired
-//  private BusinessApplication.StorageService storageService;
-//  @Autowired
-//  private BusinessApplication.OrderService orderService;
+  @Autowired
+  private BusinessApplication.StorageService storageService;
+  @Autowired
+  private BusinessApplication.OrderService orderService;
 
   @GlobalTransactional(timeoutMills = 300000, name = "spring-cloud-demo-tx")
   @GetMapping(value = "/seata/rest", produces = "application/json")
@@ -58,19 +58,19 @@ public class BusinessController
 
   }
 
-//  @GlobalTransactional(timeoutMills = 300000, name = "spring-cloud-demo-tx")
-//  @GetMapping(value = "/seata/feign", produces = "application/json")
-//  public String feign()
-//  {
-//    String result = storageService.storage(StorageValue.COMMODITY_CODE, StorageValue.ORDER_COUNT);
-//    if(!ResponseValue.SUCCESS.equals(result))
-//      throw new RuntimeException("storage error===> " + result);
-//
-//    result = orderService.order(StorageValue.USER_ID, StorageValue.COMMODITY_CODE, StorageValue.ORDER_COUNT);
-//
-//    if(!ResponseValue.SUCCESS.equals(result))
-//      throw new RuntimeException("order error===> " + result);
-//
-//    return ResponseValue.SUCCESS;
-//  }
+  @GlobalTransactional(timeoutMills = 300000, name = "spring-cloud-demo-tx")
+  @GetMapping(value = "/seata/feign", produces = "application/json")
+  public String feign()
+  {
+    String result = storageService.storage(StorageValue.COMMODITY_CODE, StorageValue.ORDER_COUNT);
+    if(!ResponseValue.SUCCESS.equals(result))
+      throw new RuntimeException("storage error===> " + result);
+
+    result = orderService.order(StorageValue.USER_ID, StorageValue.COMMODITY_CODE, StorageValue.ORDER_COUNT);
+
+    if(!ResponseValue.SUCCESS.equals(result))
+      throw new RuntimeException("order error===> " + result);
+
+    return ResponseValue.SUCCESS;
+  }
 }

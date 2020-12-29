@@ -30,8 +30,8 @@
     <lombok.version>1.18.16</lombok.version>
     <seata.version>2.2.3.RELEASE</seata.version>
     <nacos.version>2.2.0.RELEASE</nacos.version>
-<!--    <openfeign.version>2.2.6.RELEASE</openfeign.version>-->
-<!--    <loadbalance.version>2.2.6.RELEASE</loadbalance.version>-->
+    <openfeign.version>2.2.5.RELEASE</openfeign.version>
+    <loadbalance.version>2.2.5.RELEASE</loadbalance.version>
   </properties>
 
   <dependencyManagement>
@@ -66,21 +66,26 @@
         <artifactId>spring-cloud-alibaba-nacos-discovery</artifactId>
         <version>${nacos.version}</version>
       </dependency>
-<!--      <dependency>-->
-<!--        <groupId>org.springframework.cloud</groupId>-->
-<!--        <artifactId>spring-cloud-starter-openfeign</artifactId>-->
-<!--        <version>${openfeign.version}</version>-->
-<!--      </dependency>-->
-<!--      <dependency>-->
-<!--        <groupId>org.springframework.cloud</groupId>-->
-<!--        <artifactId>spring-cloud-starter-loadbalancer</artifactId>-->
-<!--        <version>${loadbalance.version}</version>-->
-<!--      </dependency>-->
-<!--      <dependency>-->
-<!--        <groupId>org.springframework.cloud</groupId>-->
-<!--        <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>-->
-<!--        <version>${openfeign.version}</version>-->
-<!--      </dependency>-->
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-openfeign</artifactId>
+        <version>${openfeign.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-loadbalancer</artifactId>
+        <version>${loadbalance.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+        <version>${openfeign.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-actuator</artifactId>
+        <version>${openfeign.version}</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 

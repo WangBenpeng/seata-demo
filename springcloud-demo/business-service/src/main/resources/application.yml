@@ -18,12 +18,12 @@ spring:
 #        enabled: true
   application:
     name: business-service
-#feign:
-#  client:
-#    config:
-#      default:
-#        connectTimeout: 10000
-#        readTimeout: 10000
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 10000
+        readTimeout: 10000
 
 seata:
   enabled: true
